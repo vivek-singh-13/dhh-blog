@@ -1,35 +1,122 @@
 import "./singlePost.css";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useLocation } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
+
 
 export default function SinglePost() {
+    const location = useLocation();
+    const path = location.pathname.split("/")[2];
+    const [post, setPost] = useState({});
+    const PF = "http://127.0.0.1:5000/images/";
+    const { user } = useContext(Context);
+    const [title, setTitle] = useState("");
+    const [desc, setDesc] = useState("");
+    const [updateMode, setUpdateMode] = useState(false);
+
+    useEffect(() => {
+        const getPost = async () => {
+            const res = await axios.get("/posts/" + path);
+            setPost(res.data);
+            setTitle(res.data.title);
+            setDesc(res.data.desc);
+        };
+        getPost();
+    }, [path]);
+
+    const handleDelete = async () => {
+        try {
+        await axios.delete(`/posts/${post._id}`, {
+                data: { username: user.username }
+            });
+            window.location.replace("/");
+        } catch (err) {
+            console.log(err);
+        }
+
+    }
+
+    const handleUpdate = async () => {
+        try {
+            await axios.put(`/posts/${post._id}`, {
+                username: user.username, title, desc
+            });
+            //window.location.reload("/");
+            setUpdateMode(false);
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
     return (
         <div className="singlePost">
             <div className="singlePostWrapper">
-                <img 
-                src="data:image/jpeg;base64,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" alt="" className="singlePostImg" 
-                />
-                <h1 className="singlePostTitle">
-                    Lorem ipusm dolor sir amet.
-                    <div className="singlePostEdit">
-                        <EditIcon className="singlePostIcon"/>
-                        <DeleteIcon className="singlePostIcon"/>
-                    </div>
-                    <div className="singlePostInfo">
-                        <span className="singlePostAuthor">
-                            Author: <b>Vivek</b>
-                        </span>
-                        <span className="singlePostDate">
-                            1 hour ago
-                        </span>
-                    </div>
-                    <p className="singlePostDesc">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis vero animi architecto reprehenderit debitis iure ex, quam maiores saepe cum cupiditate voluptatem aperiam a alias vitae inventore ratione. Exercitationem, quasi.
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod unde animi aut dignissimos fugiat cum quibusdam quo provident, ex sequi atque incidunt sed libero vitae impedit aperiam voluptatibus deleniti eveniet!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et consequuntur necessitatibus reiciendis repudiandae architecto, rem, unde ea illo sapiente similique ex aperiam? Nemo doloremque ad illo quia deleniti nisi voluptatem.
+                {post.photo && (
+                    <img
+                        src={PF + post.photo}
+                        alt=""
+                        className="singlePostImg"
+                    />
+                )}{
+                    updateMode ? (
+                        <input
+                            type="text"
+                            value={title}
+                            className="singlePostTitleInput"
+                            autoFocus
+                            onChange={(e) => setTitle(e.target.value)}
+                        />
+                    ) : (
+                        <h1 className="singlePostTitle">
+                            {title}
+                            {post.username === user?.username && (
+                                <div className="singlePostEdit">
+                                    <EditIcon className="singlePostIcon"
+                                        onClick={() => setUpdateMode(true)}
+                                    />
+                                    <DeleteIcon className="singlePostIcon"
+                                        onClick={handleDelete}
+                                    />
+                                </div>
+                            )
+                            }
+                        </h1>
+                    )
+                }
+                <div className="singlePostInfo">
+                    <span className="singlePostAuthor">
+                        Author: 
+                        <Link className="link" to={`/?user=${post.username}`}>
+                            <b> {post.username}</b>
+                        </Link>
+                    </span>
+                    <span className="singlePostDate">
+                        {new Date(post.createdAt).toDateString}
+                    </span>
+                </div>
+                {updateMode ? (
+                    <textarea
+                        className="singlePostDescInput"
+                        value={desc}
+                        onChange={(e) => setDesc(e.target.value)}
+                    />
+                ) : (
 
+                    <p className="singlePostDesc">
+                        {desc}
                     </p>
-                </h1>
+                )
+                }
+                {updateMode && (
+                    <button className="singlePostButton"
+                        onClick={handleUpdate}>
+                        Update
+                    </button>
+                )}
             </div>
         </div>
     )
