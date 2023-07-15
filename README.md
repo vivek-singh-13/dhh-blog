@@ -1,7 +1,7 @@
 
 # DHH Blog App
 
-![App Screenshot](![image](https://github.com/vivek-singh-13/dhh-blog/assets/78148430/7093be65-7ed7-4f85-8c1c-ac712cf02690)
+![App Screenshot](![image](https://user-images.githubusercontent.com/78148430/7093be65-7ed7-4f85-8c1c-ac712cf02690)
 )
 
 
