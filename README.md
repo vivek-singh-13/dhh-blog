@@ -1,70 +1,63 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# DHH Blog App
 
-## Available Scripts
+![App Screenshot](![image](https://github.com/vivek-singh-13/dhh-blog/assets/78148430/7093be65-7ed7-4f85-8c1c-ac712cf02690)
+)
 
-In the project directory, you can run:
 
-### `npm start`
+## About The Project
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+DHH Blog is a MERN web application designed for Desi Hip Hop (DHH) enthusiasts. It aims to create an engaging online platform where users can discover, share, and discuss the latest news, music, events, albums, artists and culture within the Desi Hip Hop community. The app will provide a seamless user experience, offering features such as user registration, content creation, content updation and view other user's blog articles.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- User Registration : Users can create an account, log in, and manage their profile information like updating email, password and profile picture.
+- Blogs and Articles: The app features a dedicated section for news and articles related to Desi Hip Hop. Users can publish content, like albums releases, reviews, and editorials, keeping other users and the community up-to-date with the latest happenings in the DHH world.
+- Blog Updation - Users can also update their blog content once published if they think they have made a mistake or even delete a blog.
+- Design: The design of the DHH Blog web app will be visually appealing, with a focus on creating an immersive experience for Desi Hip Hop enthusiasts. One of the key design elements that will enhance the overall aesthetics of the app is the use of pleasing fonts throughout the user interface. It is important to choose fonts that are easy to read, especially when displaying content such as articles.
 
-### `npm run build`
+## Demo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Insert gif or link to demo
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Built With
+- React.js
+- Express.js
+- Node.js
+- MongoDB
+- CSS
+- Material UI
+- Context API
+- Brcypt
+## Installation
 
-### `npm run eject`
+1. Fork the repository or clone the project
+2. Navigate to the "client" and "api" folders in separate terminals, then install the npm packages
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+  cd api
+  npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Create a .env file with custom key, as shown
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+  MONGO_URL = <MONGO_DB_KEY>
+```
+4. Now start the backend or api folder
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+  npm start
+```
+5. In separate terminal run command for the client side  
 
-## Learn More
+```bash
+  cd client
+  npm install
+  npm start
+```    
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
