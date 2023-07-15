@@ -1,8 +1,8 @@
 
 # DHH Blog App
 
-![App Screenshot]((https://user-images.githubusercontent.com/78148430/7093be65-7ed7-4f85-8c1c-ac712cf02690.png)
-)
+![dhhimg](https://github.com/vivek-singh-13/dhh-blog/assets/78148430/7de0b081-8c00-4900-82af-c395d4128f43)
+
 
 
 ## About The Project
