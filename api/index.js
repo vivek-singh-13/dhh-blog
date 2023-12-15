@@ -8,8 +8,12 @@ const postRoute = require("./routes/posts");
 const catRoute = require("./routes/categories");
 const multer = require("multer");
 const path = require("path");
+const cors = require("cors");
 
 dotenv.config();
+app.use(cors({
+    origin: ["https://6502be80861f5d0008c765b4--dhh-blog.netlify.app/"],
+  }));
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
@@ -27,6 +31,10 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", catRoute);
+
+app.get("/api/home", async (req, res) => {
+    res.json({message: "Check"});
+})
 
 const storage = multer.diskStorage({
     destination: (req, file, callbackFunc) => {

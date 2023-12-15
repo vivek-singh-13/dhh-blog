@@ -6,6 +6,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import { useEffect, useState } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
+import {serverUrl} from "../../constants";
 
 export default function Sidebar(){
 
@@ -13,7 +14,7 @@ export default function Sidebar(){
 
     useEffect(() =>{
         const getCats = async () =>{
-            const res = await axios.get("/categories");
+            const res = await axios.get(`${serverUrl}/categories`);
             setCats(res.data);
         };
         getCats();
